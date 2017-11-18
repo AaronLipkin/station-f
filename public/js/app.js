@@ -39,6 +39,8 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider,$locat
 app.controller('mainController', ['$http','$routeParams', function ($http, $routeParams) {
 
 
+	this.equipments = ['TV', 'Retro Projecteur']
+
 	$http({
 		method: 'GET',
 		url: '/rooms'
@@ -46,6 +48,26 @@ app.controller('mainController', ['$http','$routeParams', function ($http, $rout
 		this.rooms = response.data
 		console.log(response.data);
 	});
+
+	this.capacityFilter = (room) => {
+    	return !(room.capacity < this.min);
+	}
+
+	this.equipsFilter = (room) => {
+    	if(this.TVFilter && this.RPFilter) {
+    		return (room.equips.indexOf('TV') != -1 && room.equips.indexOf('Retro Projecteur') != -1)
+    	}
+    	else if (this.TVFilter) {
+    		return (room.equips.indexOf('TV') != -1)
+    	}
+    	else if (this.RPFilter) {
+    		return (room.equips.indexOf('Retro Projecteur') != -1)
+    	}
+    	else {
+    		return true
+    	}
+	}
+
 
 }]);
 
