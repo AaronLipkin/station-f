@@ -341,8 +341,8 @@ and (max-device-width : 736px) {
 		width: 80%;
 	}
 
-	#sidebar input[type="date"] {
-		min-width: 80%;
+	#no-results {
+		max-width: 40%;
 	}
 
 	#rooms {
