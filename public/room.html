@@ -11,7 +11,7 @@
 	<form ng-submit="ctrl.reserve()">
 	<h3>Name: <span class="desktop-only">&nbsp;</span></h3><input type="text" ng-model="ctrl.reservation.name" required><br>
 	<h3>Email: </h3><input type="email" ng-model="ctrl.reservation.email" required><br>
-	<h3>Date: <span class="desktop-only">&nbsp;</span></h3><input type="date" ng-model="ctrl.reservation.date" required><br>
+	<h3>Date: <br class="mobile-only"><span class="desktop-only">&nbsp;</span></h3><input type="date" ng-model="ctrl.reservation.date" required><br>
 	<h3>Time: <span class="desktop-only">&nbsp;</span></h3><select required ng-model="ctrl.reservation.time">
 		<option value="" disabled selected>--Select Time--</option>
 		<option ng-repeat="time in ctrl.possibleTimes" value="{{time}}">{{time}}</option>

@@ -301,6 +301,10 @@ main {
 	font-size: 25px;
 }
 
+.mobile-only {
+	display: none;
+}
+
 @media only screen 
 and (max-device-width : 736px) { 
 
@@ -359,11 +363,11 @@ and (max-device-width : 736px) {
 	}
 
 	.right-col input{
-		width: 80%
+		width: 80%;
 	}
 
 	.right-col select{
-		width: 90%
+		width: 90%;
 	}
 
 	.right-col h1 {
@@ -384,6 +388,10 @@ and (max-device-width : 736px) {
 
 	.desktop-only {
 		display: none;
+	}
+
+	.mobile-only {
+		display: block;
 	}
 
 	.filter-toggle {
