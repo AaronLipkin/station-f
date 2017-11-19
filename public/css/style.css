@@ -342,7 +342,7 @@ and (max-device-width : 736px) {
 	}
 
 	#no-results img {
-		max-width: 40vw;
+		max-width: 60vw;
 	}
 
 	#rooms {
