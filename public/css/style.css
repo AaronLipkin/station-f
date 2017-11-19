@@ -341,7 +341,7 @@ and (max-device-width : 736px) {
 		width: 80%;
 	}
 
-	#no-results {
+	#no-results img {
 		max-width: 40vw;
 	}
 
