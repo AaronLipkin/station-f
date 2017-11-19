@@ -11,11 +11,12 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 
 const roomsController = require('./controllers/roomsController.js');
-app.use('/rooms', roomsController);
+app.use('/roomsapi', roomsController);
 
 
-app.get('/', (req, res)=>{
-	res.render('index.html')
+app.use(function(req, res) {
+  // Use res.sendfile, as it streams instead of reading the file into memory.
+  res.sendFile(__dirname + '/public/index.html');
 });
 
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lnag="en" ng-app="stationf">
 <head>
+	<base href="/" targer="_blank">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link href="https://fonts.googleapis.com/css?family=Lekton" rel="stylesheet">
@@ -8,6 +9,10 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="icon" href="assets/favicon.png">
 
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
 
@@ -16,36 +21,13 @@
 </head>
 
 <body ng-controller="mainController as main">
-	<header>
+	<a href="/"><header>
 		<img id="header-logo" src="assets/station-f-logo-white.svg">
-	</header>
-
-	<div id="main">
-		<div id="sidebar">
-			<div class="container">
-				<h1>Filters</h1>
-				<h2>Search:</h2><input type="text" ng-model="main.filter">
-				<h2>Minimum Capacity:</h2><input type="number" ng-model="main.min">
-				<h2>Equipements</h2>
-				<input type="checkbox" ng-model="main.TVFilter">TV<br>
-				<input type="checkbox" ng-model="main.RPFilter">Retro Projecteur<br>
-			</div>
-		</div>
+	</header></a>
+	<main ng-view>
+	</main>
 
 
-		<div id="rooms">
-			<div class="room" ng-repeat="room in main.rooms | orderBy: '-capacity':true | filter: {name:main.filter} | filter: main.capacityFilter | filter: main.equipsFilter">
-				<div class="info">
-				<h1>{{room.name}}</h1>
-				<h2>Capacity:<span class="pink">{{room.capacity}}</span></h2>
-			</div>
-				<div class="equipments">
-					<div class="equip-wrapper" ng-show="room.equips.indexOf('TV') != -1"><img class="equipment" src="assets/tv.png"></div>
-					<div class="equip-wrapper" ng-show="room.equips.indexOf('Retro Projecteur') != -1"><img class="equipment" src="assets/overhead.png"></div>
-				</div>
-			</div>
-		</div>
-	</div>
 
 </body>
 

@@ -1,0 +1,33 @@
+<div class="left-col">
+	<h1 class="room-h1">{{ctrl.room.name | uppercase}}</h1>
+
+	<h2 class="room-h2">Capacity:<span class="pink">{{ctrl.room.capacity}}</span></h2>
+	<h2 class="room-h2">Equipements:</h2>
+	<h2 ng-repeat="eq in ctrl.room.equips"><span class="pink">{{eq}}</span></h2>
+	<button id="reserve-button">Reserve</button>
+</div>
+<div class="right-col">
+	<h1 class="room-h1">Reserve</h1>
+	<form ng-submit="ctrl.reserve()">
+	<h3>Name: <span class="desktop-only">&nbsp;</span></h3><input type="text" ng-model="ctrl.reservation.name" required><br>
+	<h3>Email: </h3><input type="email" ng-model="ctrl.reservation.email" required><br>
+	<h3>Date: <span class="desktop-only">&nbsp;</span></h3><input type="date" ng-model="ctrl.reservation.date" required><br>
+	<h3>Time: <span class="desktop-only">&nbsp;</span></h3><select required ng-model="ctrl.reservation.time">
+		<option value="" disabled selected>--Select Time--</option>
+		<option ng-repeat="time in ctrl.possibleTimes" value="{{time}}">{{time}}</option>
+	</select><br>
+	<button>Submit</button>
+	</form>
+</div>
+
+<div id="confirmation">
+	<div class="confirmation-container">
+	<h1 class="room-h1"><img class="firework" src="https://media.giphy.com/media/vzF0lrwPoR9kc/giphy.gif">Your Reservation<img class="firework" src="https://media.giphy.com/media/vzF0lrwPoR9kc/giphy.gif"></h1>
+
+	<h2>Name: <span class="pink">{{ctrl.reservationConfirmed.name}}</span></h2>
+	<h2>Email: <span class="pink">{{ctrl.reservationConfirmed.email}}</span></h2>
+	<h2>Room: <span class="pink">{{ctrl.room.name}}</span></h2>
+	<h2>When: <span class="pink">{{ctrl.reservationConfirmed.date | date}} at {{ctrl.reservationConfirmed.time}}</span></h2>
+	<a href="/"><button >Yay!</button></a>
+</div>
+</div>

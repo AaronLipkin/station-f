@@ -94,5 +94,16 @@ router.get('/', (req, res) => {
 	})
 })
 
+router.get('/:id', (req,res) => {
+	Room.findById(req.params.id).lean().exec((err, room) => {
+			room.equips = [];
+			for (eq of room.equipements) {
+				console.log(eq)
+				room.equips.push(eq.name)
+			}
+		res.json(room)
+	})
+})
+
 
 module.exports = router

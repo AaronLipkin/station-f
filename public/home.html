@@ -1,0 +1,29 @@
+	<div id="main">
+		<div id="sidebar">
+			<div id="filter-hide" class="filter-toggle"><h2 class="filter-title">Hide Filters</h2></div>
+			<div class="container">
+				<h1>Filters</h1> <h1 class="pink not-underlined">({{main.filtered.length}} Results)</h1>
+				<h2>Search:</h2><input type="text" ng-model="main.filter">
+				<h2>Minimum Capacity:</h2><input type="number" ng-model="main.min">
+				<h2>Equipements</h2>
+				<input type="checkbox" ng-model="main.TVFilter">TV<br>
+				<input type="checkbox" ng-model="main.RPFilter">Retro Projecteur<br>
+			</div>
+		</div>
+
+
+		<div id="rooms">
+			<div id="filter-show" class="filter-toggle"><h2 class="filter-title">Show Filters</h2></div>
+			<a class="room-link" href="{{'/rooms/' + room._id}}" ng-repeat="room in main.filtered = (main.rooms | orderBy: '-capacity':true | filter: {name:main.filter} | filter: main.capacityFilter | filter: main.equipsFilter)">
+				<div class="room">
+					<div class="info">
+						<h1>{{room.name | uppercase}}</h1>
+						<h2>Capacity:<span class="pink">{{room.capacity}}</span></h2>
+					</div>
+					<div class="equipments">
+						<div class="equip-wrapper" ng-show="room.equips.indexOf('TV') != -1"><img class="equipment" src="assets/tv.png"></div>
+						<div class="equip-wrapper" ng-show="room.equips.indexOf('Retro Projecteur') != -1"><img class="equipment" src="assets/overhead.png"></div>
+					</div>
+				</div>
+			</a>
+		</div>
