@@ -305,6 +305,12 @@ main {
 	display: none;
 }
 
+#no-results {
+	position: relative;
+	top: 20%;
+	left: 20%;
+}
+
 @media only screen 
 and (max-device-width : 736px) { 
 

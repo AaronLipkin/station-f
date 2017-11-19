@@ -4,8 +4,8 @@
 			<div class="container">
 				<h1>Filters</h1> <h1 class="pink not-underlined">({{main.filtered.length}} Results)</h1>
 				<h2>Search:</h2><input type="text" ng-model="main.filter">
-				<h2>Minimum Capacity:</h2><input type="number" ng-model="main.min">
-				<h2>Equipements</h2>
+				<h2>Minimum Capacity:</h2><input type="number" ng-model="main.min" min="0">
+				<h2>Equipements:</h2>
 				<input type="checkbox" ng-model="main.TVFilter">TV<br>
 				<input type="checkbox" ng-model="main.RPFilter">Retro Projecteur<br>
 			</div>
@@ -26,4 +26,6 @@
 					</div>
 				</div>
 			</a>
+
+			<div id="no-results" ng-show="main.filtered.length == 0"><h1>No Results Found</h1><img src="https://media.giphy.com/media/3o6wrebnKWmvx4ZBio/giphy.gif"></div>
 		</div>
